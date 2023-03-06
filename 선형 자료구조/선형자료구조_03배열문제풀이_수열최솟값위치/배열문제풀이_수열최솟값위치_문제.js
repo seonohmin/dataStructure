@@ -4,12 +4,6 @@
 function answer(nums) {
   let result = [];
 
-  // 코드 구현 시작 영역
-
-  // …
-
-  // 코드 구현 종료 영역
-
   return result;
 }
 
