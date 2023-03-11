@@ -1,14 +1,23 @@
-/* 나무 그리기 */
+/* 자연수 높이로 입력 받고 대칭형 형태로 나무를 그려주는 프로그램 */
 
 /* user code */
 function answer(height) {
-  let str = "";
+  let str = "\n";
 
-  // 코드 구현 시작 영역
+  for (let i = 0; i < height; i++) {
+    // 1. 공백 처리 " "
+    for (let j = 0; j < height - i - 1; j++) {
+      str += " ";
+    }
 
-  // …
+    // 2. * 처리 "*" 2n + 1
+    for (let j = 0; j < i * 2 + 1; j++) {
+      str += "*";
+    }
 
-  // 코드 구현 종료 영역
+    // 3. 개행문자 추가
+    str += "\n";
+  }
 
   return str;
 }

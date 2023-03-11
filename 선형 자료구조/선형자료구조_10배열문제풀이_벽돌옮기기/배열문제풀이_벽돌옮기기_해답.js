@@ -4,7 +4,7 @@
 function answer(blocks) {
   let result = 0;
 
-  // 1. 벽돌 높이 평균
+  // 1. 벽돌 높이 평균 (모든 벽돌 / length = 벽돌 높이)
   let avg = 0;
   for (let i = 0; i < blocks.length; i++) {
     avg += blocks[i];

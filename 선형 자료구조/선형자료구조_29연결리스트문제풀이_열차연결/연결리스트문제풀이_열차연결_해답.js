@@ -45,12 +45,12 @@ let input = [
 
 LinkedList.prototype.printNode = function () {
   for (let node = this.head; node != null; node = node.next) {
-    process.stdout.write(`${node.number} -> `);
+    console.log(`${node.number} -> `);
   }
   console.log("null");
 };
 
 for (let i = 0; i < input.length; i++) {
-  process.stdout.write(`#${i + 1} `);
+  console.log(`#${i + 1} `);
   answer(input[i]).printNode();
 }

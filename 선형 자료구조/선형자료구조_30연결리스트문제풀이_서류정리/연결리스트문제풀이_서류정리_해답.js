@@ -59,7 +59,7 @@ LinkedList.prototype.makeFiles = function (files) {
 };
 
 for (let i = 0; i < input.length; i++) {
-  process.stdout.write(`#${i + 1} `);
+  console.log(`#${i + 1} `);
 
   let ll = new LinkedList();
   ll.makeFiles(input[i]);

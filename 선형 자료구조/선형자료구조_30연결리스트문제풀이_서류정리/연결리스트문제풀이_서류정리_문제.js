@@ -9,11 +9,20 @@ function LinkedList() {
 }
 
 function answer(ll) {
-  // 코드 구현 시작 영역
+  let current = ll.head,
+    prev = null,
+    next;
 
-  // …
+  // 1. 역 방향 정렬
+  while (current != null) {
+    next = current.next;
+    current.next = prev;
+    prev = current;
+    current = next;
+  }
 
-  // 코드 구현 종료 영역
+  // 2. head 업데이트
+  ll.head = prev;
 
   return ll;
 }

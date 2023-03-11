@@ -2,9 +2,19 @@
 
 /* user code */
 function answer(nums, target) {
-  // 코드 구현 시작 영역
-  // …
-  // 코드 구현 종료 영역
+  let map = {}; // key, value
+
+  // target - nums[i] = nums[j]
+  // for 2중 O(n^2) -> for 1중 O(n)
+  for (let i = 0; i < nums.length; i++) {
+    if (map[target - nums[i]] != undefined) {
+      return [map[target - nums[i]], i];
+    }
+
+    map[nums[i]] = i;
+  }
+
+  return [];
 }
 
 /* main code */

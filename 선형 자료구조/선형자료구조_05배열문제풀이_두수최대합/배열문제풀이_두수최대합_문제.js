@@ -1,14 +1,19 @@
-/* 두 수 최대합 */
+/* 두 개의 수를 선택하여 최대 합이 나올 수 있도록 프로그램을 제작하시오. */
 
 /* user code */
 function answer(nums) {
   let result = [];
 
-  // 코드 구현 시작 영역
-
-  // …
-
-  // 코드 구현 종료 영역
+  // result[0] <- 1번째 최대값, result[1] <- 2번째 최대값
+  result = nums[0] > nums[1] ? [nums[0], nums[1]] : [nums[1], nums[0]];
+  for (let i = 2; i < nums.length; i++) {
+    if (nums[i] > result[0]) {
+      result[1] = result[0];
+      result[0] = nums[i];
+    } else if (nums[i] > result[1]) {
+      result[1] = nums[i];
+    }
+  }
 
   return result;
 }
@@ -29,6 +34,6 @@ let input = [
 ];
 
 for (let i = 0; i < input.length; i++) {
-  process.stdout.write(`#${i + 1} `);
+  console.log(`#${i + 1} `);
   console.log(answer(input[i]));
 }

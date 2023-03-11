@@ -4,11 +4,19 @@
 function answer(blocks) {
   let result = 0;
 
-  // 코드 구현 시작 영역
+  // 1. 벽돌 높이 평균 (모든 벽돌 / length = 벽돌 높이)
+  let avg = 0;
+  for (let i = 0; i < blocks.length; i++) {
+    avg += blocks[i];
+  }
+  avg /= blocks.length;
 
-  // …
-
-  // 코드 구현 종료 영역
+  // 2. 현재 벽돌 높이 - 벽돌 높이 평균 => 옮겨야 할 벽돌 개수
+  for (let i = 0; i < blocks.length; i++) {
+    if (blocks[i] > avg) {
+      result += blocks[i] - avg;
+    }
+  }
 
   return result;
 }

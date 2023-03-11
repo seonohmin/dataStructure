@@ -11,11 +11,44 @@ function LinkedList() {
 function answer(n, m, k) {
   let result = [];
 
-  // 코드 구현 시작 영역
+  // 1. Circular Linked List 제작
+  let ll = new LinkedList();
+  let current, prev;
+  for (let i = 1; i <= n; i++) {
+    current = new Node(i);
 
-  // …
+    if (i === 1) {
+      ll.head = current;
+    } else {
+      prev.next = current;
+    }
 
-  // 코드 구현 종료 영역
+    prev = current;
+  }
+  current.next = ll.head;
+
+  // 2. Start node 위치 설정
+  current = ll.head;
+  while (--m) {
+    prev = current;
+    current = current.next;
+  }
+
+  // 3. 후보자들 중 k만큼 움직이면서 제거 -> 단, 혼자 남을 때
+  let count;
+  while (current.next != current) {
+    result.push(current.data);
+    prev.next = current.next;
+
+    count = k;
+    while (count--) {
+      prev = current;
+      current = current.next;
+    }
+  }
+
+  // 4. 혼자 남은 후보 번호를 result 추가
+  result.push(current.data);
 
   return result;
 }

@@ -1,14 +1,38 @@
-/* 일곱 난장이 */
+ /* 일곱 난장이를 분별하는 프로그램을 작성하시오. */
 
 /* user code */
 function answer(dwarf) {
   let result = [];
 
-  // 코드 구현 시작 영역
+  // 1. 9명(배열 총 합) - 7명(100) = 2명(faker 합)
+  let sum = 0;
+  for (let i = 0; i < dwarf.length; i++) {
+    sum += dwarf[i];
+  }
+  sum -= 100; // faker 2명에 대한 배지값
 
-  // …
 
-  // 코드 구현 종료 영역
+  // 2. for 두 요소의 합이 faker 2명에 대한 합 숫자와 같은지 비교 -> (i, j)
+  let faker = [];
+  for (let i = 0; i < dwarf.length; i++) {
+    for (let j = i + 1; j < dwarf.length; j++) {
+      if (sum == dwarf[i] + dwarf[j]) {
+          faker[0] = i;
+          faker[1] = j;
+          break;
+      }
+    }
+    if (faker.length != 0) break;
+  }
+
+
+  // 3. faker 두 명을 제외하고 나머지 배지 값을 result에 넣어준다.
+  let count = 0;
+  for (let i = 0; i < dwarf.length; i++) {
+    if (faker[0] != i && faker[1] != i) {
+      result[count++] = dwarf[i];
+    }
+  }
 
   return result;
 }
@@ -26,6 +50,6 @@ let input = [
 ];
 
 for (let i = 0; i < input.length; i++) {
-  process.stdout.write(`#${i + 1} `);
+  console.log(`#${i + 1} `);
   console.log(answer(input[i]));
 }

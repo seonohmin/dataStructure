@@ -1,14 +1,17 @@
-/* 체스 세트 */
-
+/* 게임을 하기 위해 부족하거나 많은 기물의 개수를 계산하여 반환하는 프로그램을 제작하시오. */
+ 
 /* user code */
 function answer(chess) {
   let result = [];
 
-  // 코드 구현 시작 영역
+  // 1. 각 index 별로 정해진 숫자 <- 체스 게임을 하기 위한 기물의 개수
+  let refer = [1, 1, 2, 2, 2, 8];
 
-  // …
-
-  // 코드 구현 종료 영역
+  // 2. 각 index 별로 정해진 숫자와 비교해서 얼만큼 부족한지, 더 많은지 계산하여 result 배열에 업데이트
+  let count = 0;
+  for (let i = 0; i < chess.length; i++) {
+    result[count++] = refer[i] - chess[i];
+  }
 
   return result;
 }
@@ -26,6 +29,6 @@ let input = [
 ];
 
 for (let i = 0; i < input.length; i++) {
-  process.stdout.write(`#${i + 1} `);
+  console.log(`#${i + 1} `);
   console.log(answer(input[i]));
 }

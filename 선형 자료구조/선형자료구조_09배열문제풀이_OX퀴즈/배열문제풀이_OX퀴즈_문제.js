@@ -3,12 +3,16 @@
 /* user code */
 function answer(mark) {
   let result = 0;
-
-  // 코드 구현 시작 영역
-
-  // …
-
-  // 코드 구현 종료 영역
+  
+  // 1 -> 1점, 연속한 1인 경우 연속한 count 만큼 점수 추가
+  let score = 0;
+  for (let i = 0; i < mark.length; i++) {
+    if (mark[i] == 1) {
+      result += ++score;
+    } else {
+      score = 0;
+    }
+  }
 
   return result;
 }
